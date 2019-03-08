@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot' version '2.1.1.RELEASE'
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
+group = 'com.github.dddpaul'
+version = '2.1.1.RELEASE'
+sourceCompatibility = '1.8'
+
+application {
+    mainClassName = 'org.springframework.cloud.config.server.ConfigServerApplication'
+}
+
+dependencies {
+    compile "org.springframework.cloud:spring-cloud-config-server:2.1.1.RELEASE"
+}
+
+wrapper {
+    gradleVersion = '5.2.1'
+    distributionUrl = 'https://services.gradle.org/distributions/gradle-5.2.1-bin.zip'
+}
