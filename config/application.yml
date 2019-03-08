@@ -6,11 +6,6 @@ spring:
     name: configserver
   jmx:
     default_domain: cloud.config.server
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/dddpaul/spring-cloud-config-repo
 
 management:
   context_path: /admin
