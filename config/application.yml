@@ -14,4 +14,3 @@ spring:
 
 management:
   context_path: /admin
- 
