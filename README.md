@@ -79,3 +79,9 @@ docker run -it -p 8888:8888 \
       -e SPRING_PROFILES_ACTIVE=vault \
       dddpaul/spring-cloud-config-server
 ```
+
+#### Encrypt & decrypt
+```
+docker-compose up
+curl localhost:8888/encrypt -d secret
+```
