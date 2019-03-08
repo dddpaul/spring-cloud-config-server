@@ -1,17 +1,16 @@
 # Spring Cloud Config Server
 A docker image of [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.1.1.RELEASE/single/spring-cloud-config.html).
 
-[![Docker Automated buil](https://img.shields.io/docker/automated/hyness/spring-cloud-config-server.svg?style=flat-square)](https://hub.docker.com/r/hyness/spring-cloud-config-server/builds/)
-[![Docker Stars](https://img.shields.io/docker/stars/hyness/spring-cloud-config-server.svg?style=flat-square)](https://hub.docker.com/r/hyness/spring-cloud-config-server/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/hyness/spring-cloud-config-server.svg?style=flat-square)](https://hub.docker.com/r/hyness/spring-cloud-config-server)
-[![Image Size](https://images.microbadger.com/badges/image/hyness/spring-cloud-config-server.svg)](https://microbadger.com/images/hyness/spring-cloud-config-server)
+[![Docker Stars](https://img.shields.io/docker/stars/dddpaul/spring-cloud-config-server.svg?style=flat-square)](https://hub.docker.com/r/dddpaul/spring-cloud-config-server/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/dddpaul/spring-cloud-config-server.svg?style=flat-square)](https://hub.docker.com/r/dddpaul/spring-cloud-config-server)
+[![Image Size](https://images.microbadger.com/badges/image/dddpaul/spring-cloud-config-server.svg)](https://microbadger.com/images/dddpaul/spring-cloud-config-server)
 
 ## Usage
 ```
 docker run -it --name=spring-cloud-config-server \
       -p 8888:8888 \
       -v </path/to/config>:/config \
-      hyness/spring-cloud-config-server
+      dddpaul/spring-cloud-config-server
 ```
 
 #### Parameters
@@ -27,21 +26,21 @@ Spring Cloud Config Server is a normal Spring Boot application, it can be config
 # Using a mounted config Directory
 docker run -it -p 8888:8888 \
       -v /path/to/config/dir:/config \
-      hyness/spring-cloud-config-server
+      dddpaul/spring-cloud-config-server
 
 # Using a mounted application.yml
 docker run -it -p 8888:8888 \
       -v /path/to/application.yml:/config/application.yml \
-      hyness/spring-cloud-config-server
+      dddpaul/spring-cloud-config-server
 
 # Configure through environment variables without a configuration file
 docker run -it -p 8888:8888 \
       -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/spring-cloud-samples/config-repo \
-      hyness/spring-cloud-config-server
+      dddpaul/spring-cloud-config-server
 
 # Configure through command line arguments without a configuration file
 docker run -it -p 8888:8888 \
-      hyness/spring-cloud-config-server \
+      dddpaul/spring-cloud-config-server \
       --spring.cloud.config.server.git.uri=https://github.com/spring-cloud-samples/config-repo
 ```
 #### Verify Samples Above
@@ -57,13 +56,13 @@ Spring Cloud Config Server **requires** that you configure a backend to serve yo
 # Github example
 docker run -it -p 8888:8888 \
       -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/spring-cloud-samples/config-repo \
-      hyness/spring-cloud-config-server
+      dddpaul/spring-cloud-config-server
 
 # Local git repo example
 docker run -it -p 8888:8888 \
       -v /path/to/config/files/dir:/config \
       -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=file:/config/my-local-git-repo \
-      hyness/spring-cloud-config-server
+      dddpaul/spring-cloud-config-server
 ```
 
 #### Filesystem
@@ -71,12 +70,12 @@ docker run -it -p 8888:8888 \
 docker run -it -p 8888:8888 \
       -v /path/to/config/files/dir:/config \
       -e SPRING_PROFILES_ACTIVE=native \
-      hyness/spring-cloud-config-server
+      dddpaul/spring-cloud-config-server
 ```
 
 #### Vault
 ```
 docker run -it -p 8888:8888 \
       -e SPRING_PROFILES_ACTIVE=vault \
-      hyness/spring-cloud-config-server
+      dddpaul/spring-cloud-config-server
 ```
