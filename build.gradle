@@ -25,7 +25,7 @@ bootJar {
     mainClassName = 'org.springframework.cloud.config.server.ConfigServerApplication'
 }
 
-task createDockerfile(type: Dockerfile) {
+task dockerCreateFile(type: Dockerfile) {
     dependsOn bootJar
     destFile = file("${project.buildDir}/Dockerfile")
     from 'adoptopenjdk/openjdk11:jdk-11.0.2.9-alpine-slim'
@@ -35,8 +35,8 @@ task createDockerfile(type: Dockerfile) {
     entryPoint 'java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar', '--server.port=8888', '--spring.config.name=application'
 }
 
-task buildDockerImage(type: DockerBuildImage) {
-    dependsOn createDockerfile
+task dockerBuildImage(type: DockerBuildImage) {
+    dependsOn dockerCreateFile
     inputDir = file("${project.buildDir}")
     tags = [
             "${dockerPrefix}/${project.name}".toString(),

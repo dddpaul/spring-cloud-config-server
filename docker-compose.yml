@@ -3,7 +3,7 @@ version: '3'
 services:
   config-server:
     container_name: config-server
-    image: dddpaul/spring-cloud-config-server
+    image: dddpaul/spring-cloud-config-server:2.1.1.RELEASE
     ports:
       - "8888:8888"
     volumes:
