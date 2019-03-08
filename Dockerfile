@@ -1,5 +1,5 @@
 FROM maven:alpine
-MAINTAINER hyness <hyness@freshlegacycode.org>
+MAINTAINER Pavel Derendyaev <dddpaul@gmail.com>
 
 EXPOSE 8888
 COPY . /opt/spring-cloud-config-server/
