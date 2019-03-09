@@ -32,7 +32,7 @@ task dockerCreateFile(type: Dockerfile) {
     addFile "libs/${project.name}-${project.version}.jar", '/app.jar'
     volume '/config'
     exposePort 8888
-    entryPoint 'java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar', '--server.port=8888', '--spring.config.name=application'
+    entryPoint 'java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar', '--spring.config.name=configserver'
 }
 
 task dockerBuildImage(type: DockerBuildImage) {
