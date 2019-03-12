@@ -13,6 +13,7 @@ services:
       - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
       - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/dddpaul/spring-cloud-config-repo
       - ENCRYPT_KEY=JqrgXR9BsS33dbpYhMzZHr6T
+      - SECURITY_ENDPOINT_DECRYPT_ENABLED=TRUE
 
   application:
     container_name: application
