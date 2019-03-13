@@ -20,8 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestPropertySource(properties = {
-        "spring.cloud.config.server.git.uri=http://localhost:80",
-        "encrypt.key=some_key"
+        "spring.cloud.config.server.git.uri=http://localhost:80"
 })
 public class DefaultConfigurationTest {
 

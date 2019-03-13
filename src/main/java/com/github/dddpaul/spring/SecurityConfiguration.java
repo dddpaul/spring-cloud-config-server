@@ -15,11 +15,11 @@ public class SecurityConfiguration {
      */
     @Configuration
     @Order(1)
-    @ConditionalOnProperty(value = "security.endpoint.decrypt.enabled", matchIfMissing = true)
+    @ConditionalOnProperty(value = "security.endpoint.decrypt.enabled", matchIfMissing = true, havingValue = "false")
     public static class DenyDecryptEndpointAdapter extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests()
+            http.csrf().disable().authorizeRequests()
                     .antMatchers("/decrypt").denyAll();
         }
     }
@@ -29,7 +29,7 @@ public class SecurityConfiguration {
     public static class PermitAllAdapter extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests()
+            http.csrf().disable().authorizeRequests()
                     .anyRequest().permitAll();
         }
     }
