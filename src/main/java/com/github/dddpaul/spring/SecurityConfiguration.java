@@ -25,6 +25,7 @@ public class SecurityConfiguration {
     }
 
     @Configuration
+    @Order(2)
     public static class PermitAllAdapter extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {

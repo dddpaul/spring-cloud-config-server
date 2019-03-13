@@ -31,6 +31,7 @@ sourceCompatibility = JavaVersion.VERSION_11
 ext {
     dockerPrefix = 'dddpaul'
     springCloudVersion = 'Greenwich.SR1'
+    junitVersion = '5.3.1'
 }
 
 dependencyManagement {
@@ -66,6 +67,10 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-config-server:2.1.1.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 
 }
 
