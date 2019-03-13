@@ -25,7 +25,7 @@ idea {
 }
 
 group = 'com.github.dddpaul'
-version = '2.1.1.RELEASE-1'
+version = '2.1.1.RELEASE'
 sourceCompatibility = JavaVersion.VERSION_11
 
 ext {
@@ -51,7 +51,7 @@ task dockerCreateFile(type: Dockerfile) {
     addFile "libs/${project.name}-${project.version}.jar", '/app.jar'
     volume '/config'
     exposePort 8888
-    entryPoint 'java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar', '--spring.config.name=configserver'
+    entryPoint 'java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar', '--spring.config.name=configserver', '--spring.cloud.config.server.encrypt.enabled=false'
 }
 
 task dockerBuildImage(type: DockerBuildImage) {
@@ -68,9 +68,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
-    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
-    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 
 }
 

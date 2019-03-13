@@ -4,7 +4,7 @@ services:
 
   config-server:
     container_name: config-server
-    image: dddpaul/spring-cloud-config-server:2.1.1.RELEASE-1
+    image: dddpaul/spring-cloud-config-server:2.1.1.RELEASE
     ports:
       - "8888:8888"
     volumes:
@@ -13,7 +13,6 @@ services:
       - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
       - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/dddpaul/spring-cloud-config-repo
       - ENCRYPT_KEY=JqrgXR9BsS33dbpYhMzZHr6T
-      - SECURITY_ENDPOINT_DECRYPT_ENABLED=TRUE
 
   application:
     container_name: application
@@ -27,3 +26,4 @@ services:
       - SPRING_CLOUD_CONFIG_URI=http://config-server:8888
       - SPRING_PROFILES_ACTIVE=test
       - SPRING_APPLICATION_NAME=spring-app1
+      - ENCRYPT_KEY=JqrgXR9BsS33dbpYhMzZHr6T
